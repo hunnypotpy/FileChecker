@@ -3,19 +3,17 @@ import os
 
 #nagivate to folder
 
-#determine type of file to be looking for
-#if (.jpg) in folder
-#print (file is here!)
-for root, dirs, files in os.walk(dir_path):
+#look for green colored files in folder
+
+#alert if there is one
+
+'''for root, dirs, files in os.walk(dir_path):
     for file in files:
-        if file ends with('.jpg')
+        if file colored with('green')
             print (root+'/'+str(file))
         else:
-            print('File not here!')
+            print('File not here!')'''
+
+# check again in 10 minutes
 
 
-#else no (.jpg)
-#print (file is missing!)
-
-#check folder again
-#determine time interval
