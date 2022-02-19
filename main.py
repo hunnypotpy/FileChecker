@@ -1,11 +1,16 @@
-#import
-import os
+# import os
+import finder_colors
 
-#nagivate to folder
+TESTFOLDERPATH = '/Users/edgarcia/Desktop/vxrail.pdf'
 
-#look for green colored files in folder
+# TODO: get foldername from user or set the foldername in env vars
 
-#alert if there is one
+# nagivate to folder
+
+# look for green colored files in folder
+
+folder_color = finder_colors.get(TESTFOLDERPATH)
+print(folder_color)
 
 '''for root, dirs, files in os.walk(dir_path):
     for file in files:
@@ -14,6 +19,7 @@ import os
         else:
             print('File not here!')'''
 
+# alert if there is one
 # check again in 10 minutes
 
 
