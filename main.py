@@ -10,11 +10,17 @@ TESTFOLDERPATH = '/Users/edgarcia/Desktop/Timing'
 
 # TODO: walk all folders with TOP_LEVEL_FOLDER_NAME and look for green colored files in folder
 
-for root, dirs, files in os.walk(TESTFOLDERPATH, topdown=True):
-    # look for green labeled files
-    for file in files:
-        file_path = (root + '/' + str(file))
-        file_color = finder_colors.get(file_path)
-        if file_color == 'green':
-            print(file_path)
-            # alert if any green labels are found
+
+def search_for_green_labeled_files(folder_to_search):
+    for root, dirs, files in os.walk(folder_to_search, topdown=True):
+        # look for green labeled files
+        for file in files:
+            file_path = (root + '/' + str(file))
+            file_color = finder_colors.get(file_path)
+            if file_color == 'green':
+                print(file_path)
+                # alert if any green labels are found
+
+
+if __name__ == "__main__":
+    search_for_green_labeled_files(TESTFOLDERPATH)
