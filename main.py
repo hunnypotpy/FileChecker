@@ -1,26 +1,33 @@
 import os
+import sys
 import finder_colors
+import notifications
 
-TESTFOLDERPATH = '/Users/edgarcia/Desktop/Timing'
-
-# TODO: get server volume name to be searched, user input or set in env vars (e.g. duncanvill_production)
-# SERVER_VOLUME_NAME =
-# TODO: get top-level folder name to search (e.g. Timing)
-# TOP_LEVEL_FOLDER_NAME =
-
-# TODO: walk all folders with TOP_LEVEL_FOLDER_NAME and look for green colored files in folder
+USER_DESKTOP_PATH = os.environ['HOME'] + '/Desktop'
 
 
 def search_for_green_labeled_files(folder_to_search):
     for root, dirs, files in os.walk(folder_to_search, topdown=True):
-        # look for green labeled files
         for file in files:
             file_path = (root + '/' + str(file))
             file_color = finder_colors.get(file_path)
             if file_color == 'green':
                 print(file_path)
-                # alert if any green labels are found
+                notifications.desktop_popup("Green Label Found", file_path)
 
 
 if __name__ == "__main__":
-    search_for_green_labeled_files(TESTFOLDERPATH)
+    n = len(sys.argv)
+    if n == 2:
+        search_path = sys.argv[1]
+        print("Searching this location: ")
+        print(search_path)
+        print("***********************")
+        search_for_green_labeled_files(search_path)
+    elif n == 1:
+        print("Searching this location: ")
+        print(USER_DESKTOP_PATH)
+        print("***********************")
+        search_for_green_labeled_files(USER_DESKTOP_PATH)
+    else:
+        print("Too many arguments.  If your path has spaces, be sure to wrap it in quotes")

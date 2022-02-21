@@ -7,9 +7,9 @@ end run
 '''
 
 
-def notify(title, text):
+def desktop_popup(title, text):
     subprocess.call(['osascript', '-e', CMD, title, text])
 
 
 if __name__ == "__main__":
-    notify("Test Title", "Test alert text here")
+    desktop_popup("Test Title", "Test alert text here")
