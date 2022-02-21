@@ -24,10 +24,15 @@ if __name__ == "__main__":
         print(search_path)
         print("***********************")
         search_for_green_labeled_files(search_path)
+        print("***********************")
+        print("Search complete!")
+
     elif n == 1:
         print("Searching this location: ")
         print(USER_DESKTOP_PATH)
         print("***********************")
         search_for_green_labeled_files(USER_DESKTOP_PATH)
+        print("***********************")
+        print("Search complete!")
     else:
         print("Too many arguments.  If your path has spaces, be sure to wrap it in quotes")
