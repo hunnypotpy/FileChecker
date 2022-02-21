@@ -1,25 +1,20 @@
-# import os
+import os
 import finder_colors
 
-TESTFOLDERPATH = '/Users/edgarcia/Desktop/vxrail.pdf'
+TESTFOLDERPATH = '/Users/edgarcia/Desktop/Timing'
 
-# TODO: get foldername from user or set the foldername in env vars
+# TODO: get server volume name to be searched, user input or set in env vars (e.g. duncanvill_production)
+# SERVER_VOLUME_NAME =
+# TODO: get top-level folder name to search (e.g. Timing)
+# TOP_LEVEL_FOLDER_NAME =
 
-# nagivate to folder
+# TODO: walk all folders with TOP_LEVEL_FOLDER_NAME and look for green colored files in folder
 
-# look for green colored files in folder
-
-folder_color = finder_colors.get(TESTFOLDERPATH)
-print(folder_color)
-
-'''for root, dirs, files in os.walk(dir_path):
+for root, dirs, files in os.walk(TESTFOLDERPATH, topdown=True):
+    # look for green labeled files
     for file in files:
-        if file colored with('green')
-            print (root+'/'+str(file))
-        else:
-            print('File not here!')'''
-
-# alert if there is one
-# check again in 10 minutes
-
-
+        file_path = (root + '/' + str(file))
+        file_color = finder_colors.get(file_path)
+        if file_color == 'green':
+            print(file_path)
+            # alert if any green labels are found
