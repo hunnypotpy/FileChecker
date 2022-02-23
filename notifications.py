@@ -9,6 +9,7 @@ end run
 
 def desktop_popup(title, text):
     subprocess.call(['osascript', '-e', CMD, title, text])
+    subprocess.call(['afplay', '/System/Library/Sounds/Hero.aiff'])
 
 
 if __name__ == "__main__":
