@@ -1,3 +1,4 @@
+import datetime
 import os
 import sys
 from time import sleep
@@ -21,6 +22,7 @@ def search_for_green_labeled_files(folder_to_search):
 
 
 if __name__ == "__main__":
+    now = datetime.datetime.now()
     n = len(sys.argv)
     if n == 2:
         x = NUMBER_OF_INTERVALS
@@ -32,9 +34,9 @@ if __name__ == "__main__":
             print("Found:")
             search_for_green_labeled_files(search_path)
             print("*********************************************************")
-            print("Search complete!")
+            print("Search completed at {}.".format(now))
             x = x-1
-            print(x)
+            print("Filechecker will check {} more times every {} minutes".format(x, INTERVAL_IN_MINUTES))
             sleep(INTERVAL_IN_MINUTES * 60)
 
     elif n == 1:
